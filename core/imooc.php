@@ -7,11 +7,7 @@ class imooc{
         $ctrlClass = $route->ctrl;
         $action = $route->action;
         $ctrlfile = APP.'/ctrl/'.$ctrlClass.'Ctrl.php';
-//        $ctrlfile = APP.'\ctrl\\'.$ctrlClass.'Ctrl.php';
-        p($ctrlfile);
         $ctrlClass = '\\'.MODULE.'\ctrl\\'.$ctrlClass.'Ctrl';
-//        $ctrlClass = MODULE.'\ctrl\\'.$ctrlClass.'Ctrl';
-        p($ctrlClass);
         if (is_file($ctrlfile)){
             include $ctrlfile;
             $ctrl = new $ctrlClass;
