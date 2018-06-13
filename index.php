@@ -8,6 +8,7 @@
 define('IMOOC',realpath('./'));
 define('CORE',IMOOC.'/core');
 define('APP',IMOOC.'/app');
+define('MODULE','app');
 
 define('DEBUG',true);
 if (DEBUG){
