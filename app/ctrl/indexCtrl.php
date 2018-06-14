@@ -1,12 +1,12 @@
 <?php
 namespace app\ctrl;
-class indexCtrl{
+class indexCtrl extends \core\imooc {
     public function index(){
-        p('it is index');
-        $model = new \core\lib\model();
-        $sql = "select * from USER ";
-        $ret = $model->query($sql);
-        p($ret->fetchAll());
+        $data = 'Hello World';
+        $title = '视图文件';
+        $this->assign('title',$title);
+        $this->assign('data',$data);
+        $this->display('index.html');
     }
 
 }
