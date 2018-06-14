@@ -2,8 +2,8 @@
 namespace app\ctrl;
 class indexCtrl extends \core\imooc {
     public function index(){
-        $temp = \core\lib\conf::get('CTRL','route');
-        $temp = \core\lib\conf::get('ACTION','route');
+
+        $temp = new \core\lib\model();
         print_r($temp);
         $data = 'Hello World';
         $title = '视图文件';
