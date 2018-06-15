@@ -1,10 +1,14 @@
 <?php
 namespace core;
+
 class imooc{
     public static $classMap = array();
     public $assign;
 
     static public function run(){
+
+        \core\lib\log::init();
+        \core\lib\log::log($_SERVER,'server');
         $route = new \core\lib\route();
         $ctrlClass = $route->ctrl;
         $action = $route->action;
@@ -14,6 +18,7 @@ class imooc{
             include $ctrlfile;
             $ctrl = new $ctrlClass;
             $ctrl->$action();
+            \core\lib\log::log('ctrl: '.$ctrlClass.'            '.'action: '.$action);
         }else{
             throw new \Exception('找不到控制器'.$ctrlClass);
         }
