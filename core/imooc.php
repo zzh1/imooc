@@ -50,9 +50,19 @@ class imooc{
     public function display($file){
         $file = APP.'/views/'.$file;
         if (is_file($file)){
-//            p($this->assign);
-            extract($this->assign);
-            include $file;
+            /**twig*/
+//            \Twig_Autoloader::register();
+            $loader = new \Twig_Loader_Filesystem(APP.'/views');
+            $twig = new \Twig_Environment($loader, array(
+                'cache' => IMOOC.'/log/twig',
+                'debug' =>DEBUG
+            ));
+            $template = $twig->load('index.html');
+            $template->display($this->assign?$this->assign:'');
+//            echo $template->render(array('the' => 'variables', 'go' => 'here'));
+            /**twig ↑*/
+//            extract($this->assign);
+//            include $file;
         }
     }
 

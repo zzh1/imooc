@@ -4,15 +4,14 @@ use core\lib\model;
 
 class indexCtrl extends \core\imooc {
     public function index(){
-        $model = new \app\model\cModel();
+        $data = 'Hello World22';
+        $this->assign('data',$data);
+        $this->display('index.html');
+    }
 
-        $data = array(
-            'username'=>'IMOOC3333',
-            'password'=>'12233'
-        );
-        $ret = $model->setOne(15,$data);
-
-        dump($ret);
-
+    public function test(){
+        $data = 'test';
+        $this->assign('data',$data);
+        $this->display('test.html');
     }
 }
