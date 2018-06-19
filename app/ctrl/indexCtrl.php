@@ -1,15 +1,18 @@
 <?php
 namespace app\ctrl;
+use core\lib\model;
+
 class indexCtrl extends \core\imooc {
     public function index(){
+        $model = new \app\model\cModel();
 
-        $temp = new \core\lib\model();
-        print_r($temp);
-        $data = 'Hello World';
-        $title = '视图文件';
-        $this->assign('title',$title);
-        $this->assign('data',$data);
-        $this->display('index.html');
+        $data = array(
+            'username'=>'IMOOC3333',
+            'password'=>'12233'
+        );
+        $ret = $model->setOne(15,$data);
+
+        dump($ret);
+
     }
-
 }

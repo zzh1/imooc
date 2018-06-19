@@ -25,7 +25,7 @@ if (DEBUG){
     ini_set('display_error','Off');
 }
 
-dump($_SERVER);
+//dump($_SERVER);
 
 include CORE.'/common/function.php';
 include CORE.'/imooc.php';
