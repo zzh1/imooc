@@ -48,8 +48,8 @@ class imooc{
     }
 
     public function display($file){
-        $file = APP.'/views/'.$file;
-        if (is_file($file)){
+        $file_path = APP.'/views/'.$file;
+        if (is_file($file_path)){
             /**twig*/
 //            \Twig_Autoloader::register();
             $loader = new \Twig_Loader_Filesystem(APP.'/views');
@@ -57,8 +57,8 @@ class imooc{
                 'cache' => IMOOC.'/log/twig',
                 'debug' =>DEBUG
             ));
-            $template = $twig->load('index.html');
-            $template->display($this->assign?$this->assign:'');
+            $template = $twig->load($file);
+            $template->display($this->assign?$this->assign:array());
 //            echo $template->render(array('the' => 'variables', 'go' => 'here'));
             /**twig ↑*/
 //            extract($this->assign);
