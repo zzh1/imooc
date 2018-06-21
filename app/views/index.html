@@ -1,33 +1,15 @@
 {% extends "layout.html" %}
 {% block content %}
 <ul>
+    {% for val in data %}
     <li class="am-u-sm-3">
         <div>
-            <h1>title</h1>
-            <p>content</p>
-            <p><span>2015-12-12</span></p>
+            <h1>{{ val.title }}</h1>
+            <p>{{ val.content }}</p>
+            <p><span>{{ val.createtime | date('Y-m-d H:i:s') }}</span></p>
+            <a class="" href="/index/info/id/{{ val.id }}">删除留言</a>
         </div>
     </li>
-    <li class="am-u-sm-3">
-        <div>
-            <h1>title</h1>
-            <p>content</p>
-            <p><span>2015-12-12</span></p>
-        </div>
-    </li>
-    <li class="am-u-sm-3">
-        <div>
-            <h1>title</h1>
-            <p>content</p>
-            <p><span>2015-12-12</span></p>
-        </div>
-    </li>
-    <li class="am-u-sm-3">
-        <div>
-            <h1>title</h1>
-            <p>content</p>
-            <p><span>2015-12-12</span></p>
-        </div>
-    </li>
+    {% endfor %}
 </ul>
 {% endblock %}

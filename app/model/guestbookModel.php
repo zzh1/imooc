@@ -6,7 +6,7 @@ class guestbookModel extends model{
     public $table = 'guestbook';
 
     public function all(){
-
+        return $this->select($this->table,'*');
     }
 
     public function addOne($data){

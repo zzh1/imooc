@@ -1,11 +1,14 @@
 <?php
 namespace app\ctrl;
-use core\lib\model;
+use app\model\guestbookModel;
 
 class indexCtrl extends \core\imooc {
 
     //所有留言
     public function index(){
+        $model = new guestbookModel();
+        $data = $model->all();
+        $this->assign('data',$data);
         $this->display('index.html');
     }
     //添加留言
@@ -17,7 +20,7 @@ class indexCtrl extends \core\imooc {
         $data['title'] = post('title');
         $data['content'] = post('content');
         $data['createtime'] = time();
-        $model = new \app\model\guestbookModel();
+        $model = new guestbookModel();
         $ret = $model->addOne($data);
         if ($ret){
             jump('/');
