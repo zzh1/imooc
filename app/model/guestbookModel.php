@@ -9,8 +9,8 @@ class guestbookModel extends model{
 
     }
 
-    public function addOne(){
-
+    public function addOne($data){
+        return $this->insert($this->table,$data);
     }
 
 }

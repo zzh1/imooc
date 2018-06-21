@@ -14,7 +14,16 @@ class indexCtrl extends \core\imooc {
     }
     //保存留言
     public function save(){
-
+        $data['title'] = post('title');
+        $data['content'] = post('content');
+        $data['createtime'] = time();
+        $model = new \app\model\guestbookModel();
+        $ret = $model->addOne($data);
+        if ($ret){
+            jump('/');
+        }else{
+            p('error');
+        }
     }
 
 }
