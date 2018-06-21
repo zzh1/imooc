@@ -7,7 +7,7 @@
             <h1>{{ val.title }}</h1>
             <p>{{ val.content }}</p>
             <p><span>{{ val.createtime | date('Y-m-d H:i:s') }}</span></p>
-            <a class="" href="/index/info/id/{{ val.id }}">删除留言</a>
+            <a class="" href="/index/del/id/{{ val.id }}">删除留言</a>
         </div>
     </li>
     {% endfor %}

@@ -13,4 +13,15 @@ class guestbookModel extends model{
         return $this->insert($this->table,$data);
     }
 
+    public function delOne($id){
+        $ret = $this->delete($this->table,array(
+            'id'=>$id
+        ));
+        if ($ret !== false){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

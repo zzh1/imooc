@@ -29,4 +29,16 @@ class indexCtrl extends \core\imooc {
         }
     }
 
+    //删除留言
+    public function del(){
+        $id = get('id',0,'int');
+        $model = new guestbookModel();
+        $ret = $model->delOne($id);
+        if ($ret){
+            jump('/');
+        }else{
+            exit('删除失败');
+        }
+    }
+
 }
